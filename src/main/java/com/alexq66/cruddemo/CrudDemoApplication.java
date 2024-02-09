@@ -7,6 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
+import static org.antlr.v4.runtime.tree.xpath.XPath.findAll;
+
 @SpringBootApplication
 public class CrudDemoApplication {
 
@@ -20,11 +24,22 @@ public class CrudDemoApplication {
         return runner -> {
             
             //createStudent(studentDAO);
-            // createMultipleStudents(studentDAO);
-            readStudent(studentDAO);
+             //createMultipleStudents(studentDAO);
+            //readStudent(studentDAO);
+            queryForStudents(studentDAO);
 
             
         };
+    }
+
+    private void queryForStudents(StudentDAO studentDAO) {
+
+        List<Student> theStudents = studentDAO.findAll();
+
+        for(Student tempStudent : theStudents) {
+            System.out.println(tempStudent);
+        }
+
     }
 
     private void readStudent(StudentDAO studentDAO) {
