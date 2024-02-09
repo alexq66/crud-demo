@@ -23,13 +23,13 @@ public class CrudDemoApplication {
 
         return runner -> {
             
-            //createStudent(studentDAO);
-            //createMultipleStudents(studentDAO);
-            // readStudent(studentDAO);
-            //queryForStudents(studentDAO);
-            //queryForStudentsByLastName(studentDAO);
-            //updateStudent(studentDAO);
-            //deleteStudent(studentDAO);
+            createStudent(studentDAO);
+            createMultipleStudents(studentDAO);
+            readStudent(studentDAO);
+            queryForStudents(studentDAO);
+            queryForStudentsByLastName(studentDAO);
+            updateStudent(studentDAO);
+            deleteStudent(studentDAO);
             deleteAllStudents(studentDAO);
 
             
@@ -61,7 +61,7 @@ public class CrudDemoApplication {
         Student tempStudent = studentDAO.findById(studentId);
 
         System.out.println("Updating student...");
-        tempStudent.setFirstName("David");
+        tempStudent.setFirstName("Bob");
 
         studentDAO.update(tempStudent);
 
@@ -70,7 +70,7 @@ public class CrudDemoApplication {
 
     private void queryForStudentsByLastName(StudentDAO studentDAO) {
 
-        List<Student> students = studentDAO.findByLastName("Doe");
+        List<Student> students = studentDAO.findByLastName("Smith");
         for (Student tempStudent : students) {
             System.out.println(tempStudent);
         }
@@ -89,7 +89,7 @@ public class CrudDemoApplication {
     private void readStudent(StudentDAO studentDAO) {
 
         System.out.print("Creating new student object...");
-        Student tempstudent = new Student("Alex", "Quinn", "Alex@example.com");
+        Student tempstudent = new Student("Meghan", "Smith", "Meghan@example.com");
 
         System.out.println("Saving the student...");
         studentDAO.save(tempstudent);
@@ -107,7 +107,7 @@ public class CrudDemoApplication {
     private void createStudent(StudentDAO studentDAO) {
 
         System.out.print("Creating new student object...");
-        Student tempstudent = new Student("Alex", "Quinn", "Alex@example.com");
+        Student tempstudent = new Student("Joe", "Sunffy", "Joe@example.com");
 
         System.out.println("Saving the student...");
         studentDAO.save(tempstudent);
